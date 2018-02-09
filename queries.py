@@ -24,6 +24,14 @@ def programsBetween(date1, date2):
     return Program.select().where(Program.date.between(date1, date2))
 
 
+def lastPrograms(number):
+    return Program.select().order_by(Program.date.desc())[0:number - 1]
+
+
+def programWithID(id):
+    return Program.get(Program.id == id)
+
+
 def length(programs):
     return sum([program.length for program in programs])
 
