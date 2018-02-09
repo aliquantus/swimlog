@@ -22,7 +22,5 @@ def plot(datum1, datum2, timescale, stroke=0):
     plt.ylabel("Distance")
     plt.title("Distance over time")
     plt.scatter(dates, lengths)
+    plt.savefig("output/figures/{}_report_on_{}".format(timescale, date.today()))
     plt.show()
-
-
-plot(beginning(), future(), "monthly")

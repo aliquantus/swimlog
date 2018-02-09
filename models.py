@@ -12,6 +12,15 @@ with open("config.json", "r") as f:
     db = SqliteDatabase(config["dbname"])
 
 
+def get_or_create_db():
+    db.create_tables([Program, Set, Leg])
+    try:
+        db.create_tables([Program, Set, Leg])
+        print("Created a new database...")
+    except:
+        print("Opened database...")
+
+
 class BaseModel(Model):
     class Meta:
         database = db
