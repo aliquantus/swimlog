@@ -10,7 +10,7 @@ plt.plot()
 plt.show()
 
 
-print yearly(farago(), future())
+
 
 
 def monthly(date1, date2):

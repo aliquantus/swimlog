@@ -12,6 +12,10 @@ def future():
     return date.today() + timedelta(days=1)
 
 
+def beginning():
+    return Program.select().order_by(Program.date)[0].date
+
+
 def farago():
     return date(2010, 01, 01)
 

@@ -1,4 +1,6 @@
 *~
 *.pyc
-databases/*
+/databases/*
+/output/figures/*
+/output/reports/*
 
