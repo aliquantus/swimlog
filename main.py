@@ -1,6 +1,7 @@
 from models import *
 from queries import *
 from plot import plot
+from console import *
 
 
 def insertProgram(datum, length):
@@ -9,33 +10,6 @@ def insertProgram(datum, length):
 
 def removeProgram(id):
     Program.get(Program.id == id).delete_instance()
-
-
-def get_config():
-    with open("config.json", "r") as f:
-        config = json.load(f)
-    return config
-
-
-def instructions():
-    print(
-        """Welcome to the swimlog. Your current database is {}. You have the following options: \n
-        (1): insert new program
-        (2): display last five programs
-        (3): generate report
-        (4): remove program
-        (0): exit\n""".format(get_config()["dbname"])
-    )
-
-
-def display(number=5):
-    for program in lastPrograms(number):
-        print(
-            """id: {}
-             date: {}
-             length: {} \n
-            """.format(program.id, program.date, program.length)
-        )
 
 
 def interactive():
@@ -58,6 +32,10 @@ def interactive():
             else:
                 print("not a valid choice \n")
         elif choice == "4":
+            printMonthly()
+        elif choice == "5":
+            printMonthly()
+        elif choice == "9":
             id = input("choose an id to remove: ")
             try:
                 removeProgram(id)
